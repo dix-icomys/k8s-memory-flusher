@@ -1,6 +1,6 @@
 ## Clean OS memory cache on Kubernetes worker
 
-DeamonSet which pulls memory statistics of kubernetes worker and clear if it reach the limit.
+DeamonSet which pulls memory statistics of kubernetes worker and flush it if limit is reached.
 
 Details: https://linux-mm.org/Drop_Caches
 
