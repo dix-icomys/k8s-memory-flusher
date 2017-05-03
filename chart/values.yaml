@@ -1,0 +1,3 @@
+interval: 360
+buffersLimit: 100 MB
+resetCacheOption: 1

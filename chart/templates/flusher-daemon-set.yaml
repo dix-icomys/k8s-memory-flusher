@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: k8s-memory-flusher
+spec:
+  template:
+    metadata:
+      labels:
+        app: k8s-memory-flusher
+      name: k8s-memory-flusher-app
+    spec:
+      containers:
+      - image: eugenelukin/k8s-memory-flusher:latest
+        imagePullPolicy: Always
+        name: flusher
+        command: ['flusher', '--interval', '{{.Values.interval}}', '--reset_cache_option', '{{.Values.resetCacheOption}}', '--limit', '{{.Values.buffersLimit}}', '--drop_caches_file_path', '/var/host_sys_vm/drop_caches']
+        volumeMounts:
+        - mountPath: /var/host_sys_vm
+          name: host-system-proc
+      volumes:
+      - name: host-system-proc
+        hostPath:
+          path: /proc/sys/vm

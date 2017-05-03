@@ -1,0 +1,8 @@
+name: K8sMemoryFlusher
+version: 1.0.0
+description: Flush system memory cache on kubernetes worker
+sources:
+  - https://github.com/dix-icomys/k8s-memory-flusher
+maintainers:
+  - name: Eugene Lukin
+    email: dixnmail@gmail.com
