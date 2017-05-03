@@ -1,18 +1,27 @@
-## Flush system memory cache on kubernetes worker
+## DeamonSet which flush OS memory cache on kubernetes worker
 
-### Configuration
+Pulls memory statistics of kubernetes worker and clear if it reach the limit.
 
-ENV variables:
+Details: https://linux-mm.org/Drop_Caches
 
-- INTERVAL (Default 360) Timeout in seconds
-- BUFFERS_LIMIT (Default 100 MB) Maximum cache buffer size
-- RESET_CACHE_OPTION (Default 1) Option to reset, Details: https://linux-mm.org/Drop_Caches
-- DROP_CACHES_FILE_PATH (/var/docker_host_drop_caches) Mounted host file path
+### Usage
+
+```
+Usage of ./flusher:
+  -drop_caches_file_path string
+    	Mounted host file path (default "/var/host_sys_vm/drop_caches")
+  -interval int
+    	Timeout in seconds (default 360)
+  -limit string
+    	Maximum cache buffer size (default "10 MB")
+  -reset_cache_option int
+    	Option to reset (default 1)
+```
 
 ### Build
 
 make all
 
-### Install to k8s
+### Install
 
 helm install --name k8s-memory-flusher chart/
