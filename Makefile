@@ -14,4 +14,4 @@ image: build
 	docker build -t $(IMAGE):$(TAG) .
 
 clean:
-	rm $(BIN_PATH)
+	rm -f $(BIN_PATH)

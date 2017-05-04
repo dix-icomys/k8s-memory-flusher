@@ -1,6 +1,6 @@
-## Clean OS memory cache on Kubernetes worker
+## Clean OS memory cache on Kubernetes node
 
-DeamonSet which pulls memory statistics of kubernetes worker and flush it if limit is reached.
+DeamonSet which pulls memory statistics of kubernetes node and flush it if limit is reached.
 
 Details: https://linux-mm.org/Drop_Caches
 
@@ -20,8 +20,12 @@ Usage of ./flusher:
 
 ### Build
 
-make all
+`make all`
 
 ### Install
 
-helm install --name k8s-memory-flusher chart/
+`helm install --name k8s-memory-flusher chart/`
+
+`helm upgrade k8s-memory-flusher chart/`
+
+`helm delete k8s-memory-flusher`
