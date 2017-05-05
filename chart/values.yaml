@@ -1,3 +1,4 @@
 interval: 360
 buffersLimit: 100 MB
+cachedLimit: 800 MB
 resetCacheOption: 1
